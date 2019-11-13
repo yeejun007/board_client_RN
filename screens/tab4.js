@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {Text, View} from 'react-native';
 
-export class Sidebar extends Component {
+export class Tab4 extends Component {
   render() {
     return (
       <View>
@@ -11,4 +11,4 @@ export class Sidebar extends Component {
   }
 }
 
-export default Sidebar;
+export default Tab4;
