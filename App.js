@@ -1,6 +1,7 @@
 import React from 'react';
-import {StyleSheet} from 'react-native';
-import {Drawer} from './navigator/navigator';
+import {Drawer} from './src/navigator/switch_navigator';
+
+console.disableYellowBox = true;
 
 const App = () => {
   return <Drawer />;
