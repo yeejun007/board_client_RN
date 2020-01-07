@@ -3,27 +3,51 @@ import {
   Text,
   View,
   TextInput,
+  TouchableOpacity,
   Image,
   KeyboardAvoidingView,
-  TouchableWithoutFeedback,
-  Keyboard,
+  Alert,
 } from 'react-native';
 import {Button} from 'native-base';
 import {styles} from './css/start_page_css';
-
-// HOC로 키보드를 없애는 컴포넌트를 만든다
-const DismissKeyboard = ({children}) => {
-  return (
-    <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
-      {children}
-    </TouchableWithoutFeedback>
-  );
-};
+import DismissKeyboard from '../components/dissmiss_keyboard';
 
 class start_page extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      email: null,
+      passwrod: null,
+    };
   }
+
+  // changeEmail = value => {
+  //   this.setState({email: value});
+  // };
+
+  // changePassword = value => {
+  //   this.setState({email: value});
+  // };
+
+  loginBtn = () => {
+    fetch('', {
+      method: 'POST',
+      headers: {
+        Accept: 'application/json',
+        'Content-Type': 'json',
+        Authorization: '',
+      },
+      body: this.state,
+    })
+      .then(res => res.json())
+      .then(res => {
+        console.log(res);
+      })
+      .catch(error => {
+        console.log(error);
+      });
+  };
+
   render() {
     return (
       <DismissKeyboard>
@@ -40,6 +64,10 @@ class start_page extends Component {
               <Text>Email : </Text>
               <TextInput
                 style={styles.emailInput}
+                onChangeText={value => {
+                  this.setState({email: value});
+                }}
+                placeholder=" your_email@gmail.com"
                 autoCapitalize="none"
                 clearButtonMode="while-editing" // ios only
                 keyboardType="email-address"
@@ -49,7 +77,11 @@ class start_page extends Component {
               <Text>password : </Text>
               <TextInput
                 style={styles.passwordInput}
+                onChangeText={value => {
+                  this.setState({password: value});
+                }}
                 autoCapitalize="none"
+                secureTextEntry={true}
                 clearButtonMode="while-editing" // ios only
               />
             </View>

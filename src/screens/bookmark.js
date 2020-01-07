@@ -1,19 +1,119 @@
 import React, {Component} from 'react';
-import {View, Text} from 'react-native';
+import {
+  ScrollView,
+  View,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  StyleSheet,
+  Keyboard,
+  Platform,
+} from 'react-native';
+import {Button} from 'native-base';
+import Fontisto from 'react-native-vector-icons/Fontisto';
+import SimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import Post from '../components/post';
+import {json} from '../fake_data/fake_data_bookMark';
 
 class BookMark extends Component {
   constructor(props) {
     super(props);
-    this.state = {};
+    this.state = {
+      jsonData: json,
+    };
   }
 
   render() {
+    // console.log('board_tab1 렌더링', this.props);
+
     return (
       <View>
-        <Text> bookmark </Text>
+        <View style={styles.searchContainer}>
+          <Fontisto name="search" size={20} style={styles.searchIcon} />
+          <TextInput style={styles.searchTextInput} />
+          <Button
+            style={styles.searchBtn}
+            transparent
+            onPress={() => {
+              this.scrollView.scrollTo({animated: true});
+              Keyboard.dismiss();
+            }}>
+            <Text>검색</Text>
+          </Button>
+        </View>
+        <ScrollView
+          style={styles.background}
+          ref={ref => (this.scrollView = ref)}>
+          <View style={{backgroundColor: '#022C17'}}>
+            {this.state.jsonData.data.map(data => {
+              return (
+                <TouchableOpacity
+                  key={data.userId}
+                  onPress={() => {
+                    this.props.navigation.navigate('userPostScreen', {
+                      data: data,
+                    });
+                  }}>
+                  <Post
+                    key={data.userId}
+                    nickname={data.nickname}
+                    content={data.content}
+                    cash={data.cash}
+                    navigateFunc={() => {
+                      this.props.navigation.navigate('userPage', {
+                        data: data,
+                      });
+                    }}
+                  />
+                </TouchableOpacity>
+              );
+            })}
+          </View>
+          <View style={{height: 110, backgroundColor: '#022C17'}} />
+        </ScrollView>
       </View>
     );
   }
 }
+const styles = StyleSheet.create({
+  background: {
+    backgroundColor: '#021b02',
+    // flex: 1,
+  },
+  searchIcon: {
+    ...Platform.select({
+      android: {
+        paddingTop: 2,
+      },
+    }),
+  },
+  searchContainer: {
+    flexDirection: 'row',
+    padding: 5,
+    paddingTop: 5,
+    paddingBottom: 3,
+    borderWidth: 5,
+    borderColor: '#022C17',
+  },
+  searchTextInput: {
+    ...Platform.select({
+      android: {
+        paddingTop: -10,
+        paddingBottom: -10,
+      },
+      ios: {},
+    }),
+    width: '80%',
+    paddingLeft: 10,
+    borderWidth: 0,
+    fontSize: 16,
+  },
+  searchBtn: {
+    justifyContent: 'center',
+    height: '100%',
+    width: '13%',
+    paddingTop: 3,
+  },
+});
 
 export default BookMark;

@@ -54,9 +54,7 @@ export class EachAlert extends Component {
         return (
           <>
             <View>
-              <Text>
-                {this.state.data.nickname}님이 게시물에 대댓글을 달았습니다
-              </Text>
+              <Text>{this.state.data.nickname}님이 대댓글을 달았습니다</Text>
             </View>
             <View>
               <Text>{this.state.data.time}</Text>
@@ -72,7 +70,7 @@ export class EachAlert extends Component {
         return (
           <>
             <View>
-              <Text>{this.state.data.nickname}님이 좋아요를 눌렀습니다</Text>
+              <Text>{this.state.data.nickname}님이 당신을 좋아합니다</Text>
             </View>
             <View>
               <Text>{this.state.data.time}</Text>

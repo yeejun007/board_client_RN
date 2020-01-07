@@ -27,7 +27,7 @@ class Tab2 extends Component {
     return (
       <View>
         <View style={styles.searchContainer}>
-          <Fontisto name="search" size={20} />
+          <Fontisto name="search" size={20} style={styles.searchIcon} />
           <TextInput style={styles.searchTextInput} />
           <Button
             style={styles.searchBtn}
@@ -62,13 +62,6 @@ class Tab2 extends Component {
           </View>
           <View style={{height: 110, backgroundColor: '#022C17'}} />
         </ScrollView>
-        <TouchableOpacity
-          style={styles.pencilIconContainer}
-          onPress={() => {
-            this.props.navigation.navigate('boardTextInput');
-          }}>
-          <SimpleLineIcons name="pencil" size={25} />
-        </TouchableOpacity>
       </View>
     );
   }

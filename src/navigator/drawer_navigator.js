@@ -40,10 +40,10 @@ const customDrawerComponent = props => {
                   style={{height: 120, width: 120}}
                 />
               </View>
-              <View>
-                <Text>닉네임</Text>
-                <Text>성별 나이</Text>
-                <Text>현재 내 위치 정보</Text>
+              <View style={{paddingTop: 20}}>
+                <Text style={{color: 'white'}}>닉네임</Text>
+                <Text style={{color: 'white'}}>성별 나이</Text>
+                <Text style={{color: 'white'}}>현재 내 위치 정보</Text>
               </View>
             </View>
             <View>

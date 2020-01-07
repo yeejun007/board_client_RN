@@ -140,7 +140,7 @@ class UserPage extends Component {
               onPress={() => {
                 this.props.navigation.navigate('userPostScreen');
               }}>
-              <Text>작성한 게시글들(Posts) 나열</Text>
+              <Text>작성한 게시글(Post)</Text>
             </TouchableOpacity>
           </View>
         </View>

@@ -7,7 +7,7 @@ import {meterialBottomTabNavigator} from './bottom_tab_navigator';
 import {myPageBottomTabNavigator} from './bottom_tab_navigator';
 import {userPageBottomTabNavigator} from './bottom_tab_navigator';
 // 맨 처음의 스크린에서 게시물을 클릭하면 나오는 postScreen
-import PostScreen from '../screens/post_screen';
+// import PostScreen from '../screens/post_screen';
 // 내 프로필 들어가서 내가 작성한 게시물 클릭하면 나오는 postScreen
 import MyPostScreen from '../screens/my_post_screen';
 // 맨 처음의 board스크린에서 게시물의 user사진을 클릭하면 나오는 userPage에서
@@ -20,6 +20,7 @@ import ItemShop from '../screens/item_shop';
 import Notice from '../screens/notice';
 import BoardTextInput from '../screens/board_textinput';
 import ChattingScreen from '../screens/chatting_screen';
+// import PhotoScreen from '../screens/photo_screen';
 import {headerColor} from './css/navigator_css';
 import {arrowBackColor} from './css/navigator_css';
 import {headerTitleColor} from './css/navigator_css';
@@ -209,31 +210,31 @@ export const initialNavigator = createStackNavigator({
       };
     },
   },
-  postScreen: {
-    screen: PostScreen,
-    navigationOptions: ({navigation}) => {
-      // console.log(navigation);
-      return {
-        headerTitle: navigation.state.params.data.nickname,
-        headerTitleStyle: {
-          color: headerTitleColor,
-        },
-        headerStyle: {
-          backgroundColor: headerColor,
-        },
-        headerLeft: (
-          <Button
-            transparent
-            style={styles.backBtn}
-            onPress={() => {
-              return navigation.goBack();
-            }}>
-            <Ionicons name="md-arrow-back" size={30} color={arrowBackColor} />
-          </Button>
-        ),
-      };
-    },
-  },
+  // postScreen: {
+  //   screen: PostScreen,
+  //   navigationOptions: ({navigation}) => {
+  //     // console.log(navigation);
+  //     return {
+  //       headerTitle: navigation.state.params.data.nickname,
+  //       headerTitleStyle: {
+  //         color: headerTitleColor,
+  //       },
+  //       headerStyle: {
+  //         backgroundColor: headerColor,
+  //       },
+  //       headerLeft: (
+  //         <Button
+  //           transparent
+  //           style={styles.backBtn}
+  //           onPress={() => {
+  //             return navigation.goBack();
+  //           }}>
+  //           <Ionicons name="md-arrow-back" size={30} color={arrowBackColor} />
+  //         </Button>
+  //       ),
+  //     };
+  //   },
+  // },
   // board_textinput.js 위치함
   boardTextInput: {
     screen: BoardTextInput,
@@ -247,8 +248,7 @@ export const initialNavigator = createStackNavigator({
         headerStyle: {
           backgroundColor: headerColor,
         },
-        headerLeft: null,
-        headerRight: (
+        headerLeft: (
           <Button
             transparent
             style={styles.xBtn}
@@ -258,6 +258,7 @@ export const initialNavigator = createStackNavigator({
             <Feather name="x-circle" size={30} color={arrowBackColor} />
           </Button>
         ),
+        headerRight: null,
       };
     },
   },
@@ -286,4 +287,29 @@ export const initialNavigator = createStackNavigator({
       };
     },
   },
+  // photoScreen: {
+  //   screen: PhotoScreen,
+  //   navigationOptions: ({navigation}) => {
+  //     // console.log(navigation);
+  //     return {
+  //       headerTitle: '',
+  //       headerTitleStyle: {
+  //         color: headerTitleColor,
+  //       },
+  //       headerStyle: {
+  //         backgroundColor: headerColor,
+  //       },
+  //       headerLeft: (
+  //         <Button
+  //           transparent
+  //           style={styles.backBtn}
+  //           onPress={() => {
+  //             return navigation.goBack();
+  //           }}>
+  //           <Feather name="x-circle" size={30} color={arrowBackColor} />
+  //         </Button>
+  //       ),
+  //     };
+  //   },
+  // },
 });

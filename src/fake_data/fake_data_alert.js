@@ -1,7 +1,6 @@
 export const json = {
   data: [
     {
-      id: 1,
       alert: 'like',
       category: 'post',
       userId: 'yeejun2',
@@ -10,7 +9,6 @@ export const json = {
       time: '2019-12-06 14:02',
     },
     {
-      id: 2,
       alert: 'like',
       category: 'profile',
       userId: 'yeejun3',
@@ -19,7 +17,6 @@ export const json = {
       time: '2019-12-06 14:22',
     },
     {
-      id: 3,
       alert: 'dislike',
       category: 'post',
       userId: 'yeejun4',
@@ -28,7 +25,6 @@ export const json = {
       time: '2019-12-06 14:22',
     },
     {
-      id: 4,
       alert: 'addFriend',
       category: 'profile',
       userId: 'yeejun4',
@@ -37,7 +33,6 @@ export const json = {
       time: '2019-12-06 14:32',
     },
     {
-      id: 5,
       alert: 'reply',
       category: 'post',
       userId: 'yeejun4',
@@ -46,7 +41,6 @@ export const json = {
       time: '2019-12-06 14:42',
     },
     {
-      id: 6,
       alert: 'reReply',
       category: 'post',
       userId: 'yeejun3',

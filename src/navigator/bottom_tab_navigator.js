@@ -15,12 +15,14 @@ import Game from '../screens/game';
 import AlertScreen from '../screens/alert_screen';
 // import Trade from '../screens/trade';
 import Chat from '../screens/chat';
-import {boardTopTabNavigator} from './top_tab_navigator';
+// import {boardTopTabNavigator} from './top_tab_navigator';
+// 아래 boardTopTabwithBoardBtn는 연필버튼을 HOC를 통해 안에 집어넣은것
+import {boardTopTabwithBoardBtn} from './top_tab_navigator';
 import {photosTopTabNavigator} from './top_tab_navigator';
 import {styles} from './css/navigator_css';
 import {headerColor} from './css/navigator_css';
 import {bottomTabColor} from './css/navigator_css';
-import WithBadge from '../components/withBadge';
+import WithBadge from '../components/with_badge';
 
 const BadgedBellIcon = WithBadge(88)(Fontisto);
 const BadgedChatIcon = WithBadge(120)(AntDesign);
@@ -28,7 +30,7 @@ const BadgedChatIcon = WithBadge(120)(AntDesign);
 // bottomTab에 들어갈 스크린을 stack으로 감싸기
 const boardStack = createStackNavigator({
   board: {
-    screen: boardTopTabNavigator,
+    screen: boardTopTabwithBoardBtn,
     navigationOptions: ({navigation}) => {
       return {
         headerTitle: '',

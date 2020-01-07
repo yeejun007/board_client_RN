@@ -10,5 +10,5 @@ export const drawerBackgroundColor = '#012501';
 export const styles = StyleSheet.create({
   profileBtn: {marginRight: 20},
   backBtn: {marginLeft: 10},
-  xBtn: {marginRight: 10},
+  xBtn: {marginLeft: 10},
 });

@@ -25,10 +25,11 @@ class Tab1 extends Component {
 
   render() {
     // console.log('board_tab1 렌더링', this.props);
+
     return (
       <View>
         <View style={styles.searchContainer}>
-          <Fontisto name="search" size={20} />
+          <Fontisto name="search" size={20} style={styles.searchIcon} />
           <TextInput style={styles.searchTextInput} />
           <Button
             style={styles.searchBtn}
@@ -49,7 +50,9 @@ class Tab1 extends Component {
                 <TouchableOpacity
                   key={data.userId}
                   onPress={() => {
-                    this.props.navigation.navigate('postScreen', {data: data});
+                    this.props.navigation.navigate('userPostScreen', {
+                      data: data,
+                    });
                   }}>
                   <Post
                     key={data.userId}
@@ -68,13 +71,6 @@ class Tab1 extends Component {
           </View>
           <View style={{height: 110, backgroundColor: '#022C17'}} />
         </ScrollView>
-        <TouchableOpacity
-          style={styles.pencilIconContainer}
-          onPress={() => {
-            this.props.navigation.navigate('boardTextInput');
-          }}>
-          <SimpleLineIcons name="pencil" size={25} />
-        </TouchableOpacity>
       </View>
     );
   }

@@ -11,6 +11,7 @@ import PhotosTab3 from '../screens/photos_tab3';
 import PhotosTab4 from '../screens/photos_tab4';
 import PhotosTab5 from '../screens/photos_tab5';
 import {topTabColor} from './css/navigator_css';
+import {withBoardBtn} from '../components/with_board_btn';
 
 // bottomTab의 board에 들어갈 topTab 생성
 export const boardTopTabNavigator = createMaterialTopTabNavigator(
@@ -69,6 +70,9 @@ export const boardTopTabNavigator = createMaterialTopTabNavigator(
     },
   },
 );
+
+// HOC안에 boardTopTabNavigator를 집어넣는다(custom navigator)
+export const boardTopTabwithBoardBtn = withBoardBtn()(boardTopTabNavigator);
 
 // bottomTab의 photos에 들어갈 topTab 생성
 export const photosTopTabNavigator = createMaterialTopTabNavigator(

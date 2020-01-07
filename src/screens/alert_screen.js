@@ -23,9 +23,9 @@ export class AlertScreen extends Component {
     return (
       <ScrollView style={styles.mainContainer}>
         <View>
-          {this.state.data.map(objData => {
+          {this.state.data.map((objData, i) => {
             return (
-              <TouchableOpacity key={objData.id} onPress={() => {}}>
+              <TouchableOpacity key={i} onPress={() => {}}>
                 <EachAlert data={objData} />
               </TouchableOpacity>
             );

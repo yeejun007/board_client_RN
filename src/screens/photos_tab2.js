@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, View, TextInput, ScrollView} from 'react-native';
+import {Text, View, TextInput, ScrollView, Platform} from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Button} from 'native-base';
 import Fontisto from 'react-native-vector-icons/Fontisto';
@@ -9,7 +9,7 @@ class PhotosTab2 extends Component {
     return (
       <>
         <View style={styles.searchContainer}>
-          <Fontisto name="search" size={20} />
+          <Fontisto name="search" size={20} style={styles.searchIcon} />
           <TextInput style={styles.searchTextInput} />
           <Button style={styles.searchBtn} transparent>
             <Text>검색</Text>
@@ -26,8 +26,12 @@ class PhotosTab2 extends Component {
 }
 
 const styles = StyleSheet.create({
-  mainContainer: {
-    backgroundColor: '#021b02',
+  searchIcon: {
+    ...Platform.select({
+      android: {
+        paddingTop: 2,
+      },
+    }),
   },
   searchContainer: {
     flexDirection: 'row',
@@ -38,16 +42,30 @@ const styles = StyleSheet.create({
     borderColor: '#022C17',
   },
   searchTextInput: {
+    ...Platform.select({
+      android: {
+        paddingTop: -10,
+        paddingBottom: -10,
+      },
+      ios: {},
+    }),
     width: '80%',
     paddingLeft: 10,
     borderWidth: 0,
     fontSize: 16,
   },
   searchBtn: {
+    ...Platform.select({
+      android: {},
+      ios: {},
+    }),
     justifyContent: 'center',
     height: '100%',
     width: '13%',
     paddingTop: 3,
+  },
+  mainContainer: {
+    backgroundColor: '#021b02',
   },
 });
 

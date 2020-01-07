@@ -16,30 +16,6 @@ class Post extends Component {
     };
   }
 
-  changeIconAttr = (iconColor, iconNum, thumb) => {
-    const plusNum = this.state[iconNum] + 1;
-    const minusNum = this.state[iconNum] - 1;
-    const up = 'thumb-up';
-    const upOutline = 'thumb-up-outline';
-    const down = 'thumb-down';
-    const downOutline = 'thumb-down-outline';
-    const upSelected = this.state[iconColor] === 'gray' ? up : upOutline;
-    const downSelected = this.state[iconColor] === 'gray' ? down : downOutline;
-    const upOrDown = thumb === 'thumbUp' ? upSelected : downSelected;
-
-    this.state[iconColor] === 'gray'
-      ? this.setState({
-          [iconColor]: 'red',
-          [iconNum]: plusNum,
-          [thumb]: upOrDown,
-        })
-      : this.setState({
-          [iconColor]: 'gray',
-          [iconNum]: minusNum,
-          [thumb]: upOrDown,
-        });
-  };
-
   render() {
     // console.log('post.js 렌더링', this.props);
     return (
@@ -60,44 +36,6 @@ class Post extends Component {
           <Text> {this.props.nickname} </Text>
           <Text numberOfLines={2}> {this.props.content.content} </Text>
         </View>
-        <View style={styles.iconContainer}>
-          <TouchableOpacity
-            onPress={() => {
-              this.changeIconAttr(
-                'thumbUpIconColor',
-                'thumbUpIconNum',
-                'thumbUp',
-              );
-            }}
-            style={styles.thumbUpIconBtn}>
-            <MaterialCommunityIcons
-              name={this.state.thumbUp}
-              color={this.state.thumbUpIconColor}
-              size={16}
-            />
-            <Text style={{color: this.state.thumbUpIconColor}}>
-              {this.state.thumbUpIconNum}
-            </Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => {
-              this.changeIconAttr(
-                'thumbDownIconColor',
-                'thumbDownIconNum',
-                'thumbDown',
-              );
-            }}
-            style={styles.thumbDownIconBtn}>
-            <MaterialCommunityIcons
-              name={this.state.thumbDown}
-              color={this.state.thumbDownIconColor}
-              size={16}
-            />
-            <Text style={{color: this.state.thumbDownIconColor}}>
-              {this.state.thumbDownIconNum}
-            </Text>
-          </TouchableOpacity>
-        </View>
       </View>
     );
   }
@@ -109,22 +47,6 @@ const styles = StyleSheet.create({
     flex: 7,
     marginLeft: 10,
     marginRight: 10,
-  },
-  iconContainer: {
-    flex: 1,
-    paddingLeft: 5,
-    borderLeftWidth: 1,
-    borderLeftColor: '#022C17',
-  },
-  thumbUpIconBtn: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginBottom: 2,
-  },
-  thumbDownIconBtn: {
-    flexDirection: 'row',
-    justifyContent: 'space-evenly',
-    marginBottom: 2,
   },
   headerPost: {
     flexDirection: 'row',

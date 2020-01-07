@@ -6,6 +6,7 @@ import {
   ScrollView,
   TouchableOpacity,
   Image,
+  Platform,
 } from 'react-native';
 import {StyleSheet} from 'react-native';
 import {Button} from 'native-base';
@@ -17,7 +18,7 @@ class PhotosTab1 extends Component {
     return (
       <>
         <View style={styles.searchContainer}>
-          <Fontisto name="search" size={20} />
+          <Fontisto name="search" size={20} style={styles.searchIcon} />
           <TextInput style={styles.searchTextInput} />
           <Button style={styles.searchBtn} transparent>
             <Text>검색</Text>
@@ -44,6 +45,13 @@ class PhotosTab1 extends Component {
 }
 
 const styles = StyleSheet.create({
+  searchIcon: {
+    ...Platform.select({
+      android: {
+        paddingTop: 2,
+      },
+    }),
+  },
   searchContainer: {
     flexDirection: 'row',
     padding: 5,
@@ -53,12 +61,23 @@ const styles = StyleSheet.create({
     borderColor: '#022C17',
   },
   searchTextInput: {
+    ...Platform.select({
+      android: {
+        paddingTop: -10,
+        paddingBottom: -10,
+      },
+      ios: {},
+    }),
     width: '80%',
     paddingLeft: 10,
     borderWidth: 0,
     fontSize: 16,
   },
   searchBtn: {
+    ...Platform.select({
+      android: {},
+      ios: {},
+    }),
     justifyContent: 'center',
     height: '100%',
     width: '13%',
